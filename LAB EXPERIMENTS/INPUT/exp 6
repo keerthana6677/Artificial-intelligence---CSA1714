@@ -1,0 +1,11 @@
+
+rooms = {'A': 'Dirty', 'B': 'Dirty'}
+
+for room in rooms:
+    print("Vacuum is in room", room)
+
+    if rooms[room] == 'Dirty':
+        print("Cleaning room", room)
+        rooms[room] = 'Clean'
+
+print("Final status:", rooms)
