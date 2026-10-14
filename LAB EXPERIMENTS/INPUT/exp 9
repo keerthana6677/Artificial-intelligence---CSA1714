@@ -1,0 +1,23 @@
+
+from itertools import permutations
+
+dist = [
+    [0, 10, 15, 20],
+    [10, 0, 35, 25],
+    [15, 35, 0, 30],
+    [20, 25, 30, 0]
+]
+
+minimum = float('inf')
+best_path = None
+
+for path in permutations([1, 2, 3]):
+    route = (0,) + path + (0,)
+    cost = sum(dist[route[i]][route[i+1]] for i in range(4))
+
+    if cost < minimum:
+        minimum = cost
+        best_path = route
+
+print("Shortest Path:", best_path)
+print("Minimum Cost:", minimum)
