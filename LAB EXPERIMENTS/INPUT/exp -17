@@ -1,0 +1,9 @@
+
+% Database with Name and DOB
+
+person('Keerthana', '02-01-2007').
+person('Ravi', '15-06-2005').
+person('Priya', '10-12-2006').
+person('Arun', '25-03-2004').
+
+% Query the database
