@@ -1,0 +1,15 @@
+bird(sparrow).
+bird(eagle).
+bird(penguin).
+
+can_fly(sparrow).
+can_fly(eagle).
+
+check(Bird) :-
+    can_fly(Bird),
+    write('Bird can fly').
+
+check(Bird) :-
+    bird(Bird),
+    \+ can_fly(Bird),
+    write('Bird cannot fly').
