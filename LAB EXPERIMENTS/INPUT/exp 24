@@ -1,0 +1,6 @@
+parent(john, mary).
+parent(mary, sam).
+
+grandparent(X, Z) :-
+    parent(X, Y),
+    parent(Y, Z).
