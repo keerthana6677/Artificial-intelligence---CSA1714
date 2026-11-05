@@ -1,0 +1,7 @@
+diet(diabetes, 'Choose balanced meals and ask your doctor about food choices').
+diet(fever, 'Drink fluids and eat light foods').
+diet(obesity, 'Choose balanced meals and consult a dietitian').
+
+suggest(Disease) :-
+    diet(Disease, Advice),
+    write(Advice).
