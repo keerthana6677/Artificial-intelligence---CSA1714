@@ -1,0 +1,19 @@
+% Facts: student(Name) and teacher(Name)
+student(alice).
+student(bob).
+
+teacher(mr_smith).
+teacher(ms_jones).
+
+% Facts: teaches(Teacher, Subject)
+teaches(mr_smith, math).
+teaches(ms_jones, science).
+
+% Facts: studies(Student, Subject)
+studies(alice, math).
+studies(bob, science).
+
+% A teacher teaches a student's subject
+student_teacher(Student, Teacher, Subject) :-
+    studies(Student, Subject),
+    teaches(Teacher, Subject).
