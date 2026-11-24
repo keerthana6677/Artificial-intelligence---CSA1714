@@ -1,0 +1,24 @@
+% State: state(MonkeyPosition, BoxPosition, HasBanana)
+
+move(state(middle, middle, no), grasp,
+     state(middle, middle, yes)).
+
+move(state(P, P, no), climb,
+     state(P, P, no)) :-
+    P = middle.
+
+move(state(P1, P2, no), push_box,
+     state(P2, P2, no)) :-
+    P1 \= P2.
+
+move(state(P1, P2, Has), walk,
+     state(P3, P2, Has)) :-
+    P1 \= P3.
+
+solve(State, []) :-
+    State = state(_, _, yes).
+
+solve(State, [Action | Rest]) :-
+    move(State, Action, NextState),
+    solve(NextState, Rest).
+    
