@@ -1,0 +1,30 @@
+import math
+
+ratings = {
+    "A": {"Movie1": 5, "Movie2": 3, "Movie3": 4},
+    "B": {"Movie1": 4, "Movie2": 2, "Movie3": 5},
+    "C": {"Movie1": 1, "Movie2": 5, "Movie3": 2},
+}
+
+target = "A"
+similarity = {}
+
+for user, user_ratings in ratings.items():
+    if user == target:
+        continue
+
+    common = set(ratings[target]) & set(user_ratings)
+    if common:
+        a = [ratings[target][item] for item in common]
+        b = [user_ratings[item] for item in common]
+        numerator = sum(x * y for x, y in zip(a, b))
+        denominator = math.sqrt(sum(x*x for x in a) * sum(y*y for y in b))
+        similarity[user] = numerator / denominator if denominator else 0
+
+scores = {}
+for user, sim in similarity.items():
+    for item, rating in ratings[user].items():
+        if item not in ratings[target]:
+            scores[item] = scores.get(item, 0) + sim * rating
+
+print("Recommended item:", max(scores, key=sco
