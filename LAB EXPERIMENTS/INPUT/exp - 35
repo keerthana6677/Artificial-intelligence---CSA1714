@@ -1,0 +1,10 @@
+from sklearn.svm import SVC
+
+# [height, weight]
+X = [[150, 50], [160, 55], [170, 70], [180, 80]]
+y = [0, 0, 1, 1]
+
+model = SVC(kernel="linear")
+model.fit(X, y)
+
+print("Predicted class:", model.predict([[165, 60]])[0])
