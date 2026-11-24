@@ -1,0 +1,18 @@
+diagnosis(flu) :-
+    symptom(fever),
+    symptom(body_ache),
+    symptom(cough).
+
+diagnosis(cold) :-
+    symptom(sneezing),
+    symptom(runny_nose),
+    symptom(cough).
+
+diagnosis(allergy) :-
+    symptom(sneezing),
+    symptom(itchy_eyes).
+
+% Example symptoms:
+symptom(fever).
+symptom(body_ache).
+symptom(cough).
