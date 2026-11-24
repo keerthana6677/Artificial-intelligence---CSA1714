@@ -1,0 +1,22 @@
+import random
+
+POPULATION_SIZE = 10
+GENERATIONS = 20
+
+population = [random.randint(0, 31) for _ in range(POPULATION_SIZE)]
+
+for _ in range(GENERATIONS):
+    population.sort(key=lambda x: x * x, reverse=True)
+    parents = population[:4]
+    next_generation = parents.copy()
+
+    while len(next_generation) < POPULATION_SIZE:
+        parent = random.choice(parents)
+        child = parent ^ (1 << random.randrange(5))  # Flip one bit
+        next_generation.append(child)
+
+    population = next_generation
+
+best = max(population, key=lambda x: x * x)
+print("Best x:", best)
+print("Maximum value:", best * best)
