@@ -1,0 +1,15 @@
+positive = {"good", "great", "love", "excellent", "happy"}
+negative = {"bad", "awful", "hate", "poor", "sad"}
+
+text = input("Enter a sentence: ").lower()
+words = text.split()
+
+score = sum(word in positive for word in words)
+score -= sum(word in negative for word in words)
+
+if score > 0:
+    print("Positive sentiment")
+elif score < 0:
+    print("Negative sentiment")
+else:
+    print("Neutral sentiment")
