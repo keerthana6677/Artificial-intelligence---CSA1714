@@ -1,0 +1,10 @@
+from sklearn.neighbors import KNeighborsClassifier
+
+# [height, weight]
+X = [[150, 50], [155, 52], [180, 80], [185, 85]]
+y = ["Short", "Short", "Tall", "Tall"]
+
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X, y)
+
+print("Predicted class:", model.predict([[170, 65]])[0])
